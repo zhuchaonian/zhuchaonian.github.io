@@ -177,23 +177,19 @@ dy>
       align-items: center;
     }
 
-    .qr-code-placeholder {
-      background: #fcf9f5;
-      border-radius: 30px;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      min-width: 210px;
-      border: 2px dashed #cbb7a8;
-    }
-
-    .qr-code-placeholder svg {
-      width: 140px;
-      height: 140px;
-      background: white;
-      padding: 12px;
-      border-radius: 24px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
+   <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
+  <div style="text-align: center; background: white; padding: 15px; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    < img src="wechat.jpg" alt="微信收款码" width="140" style="border-radius: 12px; display: block;">
+    <p style="margin-top: 8px; font-weight: 500;">微信支付</p >
+  </div>
+  <div style="text-align: center; background: white; padding: 15px; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
+    < img src="alipay.jpg" alt="支付宝收款码" width="140" style="border-radius: 12px; display: block;">
+    <p style="margin-top: 8px; font-weight: 500;">支付宝</p >
+  </div>
+</div>
+<div style="text-align: center; margin-top: 10px; color: #6f5b4c; font-size:0.9rem;">
+  ⚠️ 扫任意码付款，备注服务名称（如“手相”）
+</div>
 
     .qr-caption {
       margin-top: 0.8rem;
