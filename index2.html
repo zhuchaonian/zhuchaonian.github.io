@@ -180,7 +180,7 @@
     }
 
     .qr-item img {
-      width: 140px;
+      width: 200px;  /* 稍大一点，方便扫描 */
       border-radius: 12px;
       display: block;
     }
@@ -262,7 +262,7 @@
     }
 
     .info-card {
-      max-width: 300px;
+      flex: 1 1 250px;
     }
 
     .info-card h4 {
@@ -360,8 +360,53 @@
       <p style="color: #6b4f3c;">（三项联合解读，交叉印证更立体）</p >
     </div>
 
-    <!-- 付款区域 -->
-   https://github.com/zhuchaonian/zhuchaonian.github.io
+    <!-- 付款区域（只保留微信） -->
+    <div class="payment-section">
+      <div class="payment-title">
+        ⚡ 即刻委托 · 两步开启
+        <span>人工+AI</span>
+      </div>
+
+      <!-- 微信收款码（请替换图片文件名为你实际的文件名） -->
+      <div class="qr-row" style="justify-content: center;">
+        <div class="qr-item">
+          < img src="wechat.jpg" alt="微信收款码" style="width:200px;">
+          <p>微信支付</p >
+        </div>
+      </div>
+      <div style="text-align: center; margin: 0 0 1.5rem; color: #6f5b4c; font-size:0.9rem;">
+        ⚠️ 扫微信码付款，务必添加备注：服务名称（如“手相”）
+      </div>
+
+      <!-- 步骤 -->
+      <div class="payment-steps">
+        <div class="step-item">
+          <span class="step-number">1</span>
+          <div class="step-text"><strong>选择服务并付款</strong> — 按上方价格扫码，备注服务名称</div>
+        </div>
+        <div class="step-item">
+          <span class="step-number">2</span>
+          <div class="step-text"><strong>发送照片/需求</strong> — 付款后截图，加微信发送</div>
+        </div>
+        <div class="step-item">
+          <span class="step-number">3</span>
+          <div class="step-text"><strong>等待报告/发货</strong> — 24小时内出解读（实物48h发货）<br>📷 照片仅用于分析，隔天删除</div>
+        </div>
+      </div>
+
+      <!-- 微信号（请替换为你的真实微信号） -->
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <div class="wechat-contact">
+          ⏎ 加微信: <strong>你的真实微信号</strong> (发送截图)
+        </div>
+      </div>
+
+      <!-- 隐私删除承诺 -->
+      <div class="privacy-note">
+        🔒 所有上传照片 24-48h 内永久删除 · 不做训练 · 可要求立即销毁
+      </div>
+    </div>
+
     <!-- 护身符特别说明 -->
     <div class="amulet-note">
       <div style="text-align: left;">
@@ -376,11 +421,11 @@
 
     <hr>
 
-    <!-- 拍照小贴士 & 免责声明 (只保留一个) -->
+    <!-- 拍照小贴士 & 免责声明 -->
     <div class="info-grid">
       <div class="info-card">
         <h4>🔍 我们如何分析</h4>
-        <p>采用AI大模型 + 传统相学知识库（如《麻衣神相》规则数字化）交叉验证。所有解读均有人工复核，避免机械感。</p >
+        <p>采用AI大模型 + 传统知识库（如《麻衣神相》规则数字化）交叉验证。所有解读均有人工复核，避免机械感。</p >
       </div>
       <div class="info-card">
         <h4>📸 拍照小贴士</h4>
@@ -395,7 +440,7 @@
     <!-- 页脚 -->
     <div class="footer-note">
       <p>⛩️ 竹朝年 · 传统文化创新工作室 · 展示页</p >
-      <p>托管于 GitHub Pages · 非商用内容交流 <br> 联系: 13973437009· 微信号 13973437009
+      <p>托管于 GitHub Pages · 非商用内容交流 <br> 联系: zhuchaonian@protonmail.com · 微信号 你的真实微信号</p >
       <p style="margin-top:1rem; font-size:0.7rem;">© 2026 本页面为最小可行产品演示，实际交易通过微信/支付宝完成。</p >
     </div>
   </div>
