@@ -38,10 +38,157 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
 .upload-btn:hover {
     background-color: #9e7f64;
 }
+/* 免费试测模态框样式 */
+.trial-banner {
+    background: #e2c9b0;
+    border-radius: 40px;
+    padding: 15px 25px;
+    margin: 20px 0;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 2px solid #b5967a;
+}
+.trial-banner:hover {
+    background: #d6b99b;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content {
+    background: white;
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
+.close:hover {
+    color: black;
+}
+.tab {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.tab button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: #f0e4d8;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.tab button.active {
+    background: #b5967a;
+    color: white;
+}
+.upload-area {
+    border: 2px dashed #b5967a;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+}
+.upload-area input {
+    display: none;
+}
+.upload-area label {
+    background: #b5967a;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 40px;
+    cursor: pointer;
+    display: inline-block;
+}
+.preview {
+    max-width: 100%;
+    max-height: 200px;
+    margin-top: 15px;
+    border-radius: 10px;
+}
+.analysis-result {
+    background: #f9f3ed;
+    border-radius: 20px;
+    padding: 15px;
+    margin: 15px 0;
+    font-style: italic;
+}
+.full-report-btn {
+    background: #b45f2a;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 40px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
 </style>
 </head>
 <body>
 <div class="header"><h1>竹朝年 · 相念</h1><p>手相 · 脸相 · 婚姻契合 · 护身符</p ><div style="background:#ddd2c8;border-radius:30px;padding:5px 15px;display:inline-block;">📜仅供娱乐·数据匿名删除</div></div>
+
+<!-- 免费试测横幅 -->
+<div class="trial-banner" onclick="openModal()">
+    ✨ 点击此处免费试测手相/面相（初步分析） ✨
+</div>
+
+<!-- 模态框 -->
+<div id="trialModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 style="text-align:center;">免费试测</h2>
+        <div class="tab">
+            <button id="tabHand" class="active" onclick="switchTab('hand')">手相试测</button>
+            <button id="tabFace" onclick="switchTab('face')">面相试测</button>
+        </div>
+        <div id="handTab" style="display:block;">
+            <p>请上传一张清晰的手掌照片，我们将为您提供初步分析。</p >
+            <div class="upload-area">
+                <input type="file" id="handFile" accept="image/*" onchange="previewAndAnalyze('hand')">
+                <label for="handFile">选择照片</label>
+                < img id="handPreview" class="preview" style="display:none;">
+            </div>
+            <div id="handAnalysis" class="analysis-result" style="display:none;"></div>
+            <div id="handFullLink" style="display:none; text-align:center;">
+                <a href=" " target="_blank" class="full-report-btn">获取完整手相报告 ¥19.9</a >
+            </div>
+        </div>
+        <div id="faceTab" style="display:none;">
+            <p>请上传一张自然光下的面部照片，我们将为您提供初步分析。</p >
+            <div class="upload-area">
+                <input type="file" id="faceFile" accept="image/*" onchange="previewAndAnalyze('face')">
+                <label for="faceFile">选择照片</label>
+                < img id="facePreview" class="preview" style="display:none;">
+            </div>
+            <div id="faceAnalysis" class="analysis-result" style="display:none;"></div>
+            <div id="faceFullLink" style="display:none; text-align:center;">
+                <a href="https://tally.so/r/gD0Q5M" target="_blank" class="full-report-btn">获取完整面相报告 ¥19.9</a >
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="services">
     <!-- 手相卡片 -->
@@ -51,8 +198,7 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
         <p>感情线·智慧线·生命线·事业财运<br>📸上传清晰手掌照片</p >
         <div class="price">¥19.9<small>/次</small></div>
         <span class="badge">AI辅助·人工解读</span>
-        <!-- 手相链接（更新） -->
-        <a href=" " target="_blank" class="upload-btn">📤 上传手相照片</a >
+        <a href="https://tally.so/r/81KJpz" target="_blank" class="upload-btn">📤 上传手相照片</a >
     </div>
     <!-- 脸相卡片 -->
     <div class="card">
@@ -61,7 +207,6 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
         <p>三停五岳·十二宫位·气色眉骨·运势<br>📸自然光面部照片</p >
         <div class="price">¥19.9<small>/次</small></div>
         <span class="badge">AI面相+传统规则</span>
-        <!-- 面相链接（之前有效） -->
         <a href="https://tally.so/r/gD0Q5M" target="_blank" class="upload-btn">📤 上传脸相照片</a >
     </div>
     <!-- 婚姻合盘卡片 -->
@@ -71,7 +216,6 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
         <p>两人手相/面相交叉分析·性格相容性<br>📸双方照片</p >
         <div class="price">¥29.9<small>/对</small></div>
         <span class="badge">AI配对·情感报告</span>
-        <!-- 合盘链接（之前有效） -->
         <a href="https://tally.so/r/A7d68l" target="_blank" class="upload-btn">📤 上传双方照片</a >
     </div>
     <!-- 护身符卡片 -->
@@ -81,7 +225,6 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
         <p>天然木/玉/朱砂手串·生肖定制·福袋<br>🚚实物快递</p >
         <div class="price">¥58<small>起</small></div>
         <span class="badge">选款发货·可询生辰</span>
-        <!-- 护身符咨询链接（新创建） -->
         <a href="https://tally.so/r/GxzooL" target="_blank" class="upload-btn">📤 咨询选购</a >
     </div>
 </div>
@@ -109,5 +252,93 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
 <div class="info"><div><h4>🔍我们如何分析</h4><p>采用AI大模型+传统知识库（如《麻衣神相》规则数字化）交叉验证。所有解读均有人工复核，避免机械感。</p ></div><div><h4>📸拍照小贴士</h4><p>手相：自然光下手掌平放，五指稍分；面相：素颜、正面、光线均匀。保证特征清晰即可。</p ></div><div><h4>📋免责声明</h4><p>分析结果基于AI模型与文化符号，仅供娱乐与自我探索，不作医疗、财务或重大决策依据。</p ></div></div>
 
 <div class="footer"><p>⛩️竹朝年·传统文化创新工作室·展示页</p ><p>托管于 GitHub Pages · 非商用交流 <br> 联系: zhuchaonian@protonmail.com · 微信号 zcn13973437009</p ><p>©2026 实际交易通过微信/支付宝完成</p ></div>
+
+<script>
+// 模态框控制
+function openModal() {
+    document.getElementById('trialModal').style.display = 'block';
+}
+function closeModal() {
+    document.getElementById('trialModal').style.display = 'none';
+    // 重置所有标签和预览
+    document.getElementById('handTab').style.display = 'block';
+    document.getElementById('faceTab').style.display = 'none';
+    document.getElementById('tabHand').classList.add('active');
+    document.getElementById('tabFace').classList.remove('active');
+    resetTab('hand');
+    resetTab('face');
+}
+function resetTab(tab) {
+    let preview = document.getElementById(tab + 'Preview');
+    let analysis = document.getElementById(tab + 'Analysis');
+    let linkDiv = document.getElementById(tab + 'FullLink');
+    let fileInput = document.getElementById(tab + 'File');
+    if (preview) { preview.style.display = 'none'; preview.src = ''; }
+    if (analysis) { analysis.style.display = 'none'; analysis.innerHTML = ''; }
+    if (linkDiv) { linkDiv.style.display = 'none'; }
+    if (fileInput) { fileInput.value = ''; }
+}
+// 切换标签
+function switchTab(tab) {
+    if (tab === 'hand') {
+        document.getElementById('handTab').style.display = 'block';
+        document.getElementById('faceTab').style.display = 'none';
+        document.getElementById('tabHand').classList.add('active');
+        document.getElementById('tabFace').classList.remove('active');
+        resetTab('face');
+    } else {
+        document.getElementById('handTab').style.display = 'none';
+        document.getElementById('faceTab').style.display = 'block';
+        document.getElementById('tabHand').classList.remove('active');
+        document.getElementById('tabFace').classList.add('active');
+        resetTab('hand');
+    }
+}
+// 预览并显示模拟分析
+function previewAndAnalyze(type) {
+    const fileInput = document.getElementById(type + 'File');
+    const preview = document.getElementById(type + 'Preview');
+    const analysisDiv = document.getElementById(type + 'Analysis');
+    const linkDiv = document.getElementById(type + 'FullLink');
+
+    if (fileInput.files && fileInput.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+        reader.readAsDataURL(fileInput.files[0]);
+
+        // 模拟分析文本（随机选择一条）
+        const handAnalyses = [
+            "初步分析：您的生命线深长，体质较好；智慧线略微下垂，富有想象力。感情线清晰，情感丰富。",
+            "初步分析：手掌厚实，财运不错；事业线清晰，工作上会有突破。感情线上有岛纹，需注意沟通。",
+            "初步分析：生命线起点高，活力充沛；智慧线分叉，多才多艺。感情线末端下垂，为他人着想。"
+        ];
+        const faceAnalyses = [
+            "初步分析：额头饱满，智慧早开；眉形清秀，人际关系佳。鼻梁挺直，中年运势不错。",
+            "初步分析：下巴圆润，晚年安稳；颧骨有肉，权力欲望不强但人缘好。眼神清澈，心地善良。",
+            "初步分析：三停均衡，一生顺遂；气色红润，近期运势上扬。建议把握机会。"
+        ];
+        const analyses = type === 'hand' ? handAnalyses : faceAnalyses;
+        const randomIndex = Math.floor(Math.random() * analyses.length);
+        analysisDiv.innerHTML = analyses[randomIndex];
+        analysisDiv.style.display = 'block';
+        linkDiv.style.display = 'block';
+    } else {
+        // 如果没有选择文件，重置
+        preview.style.display = 'none';
+        analysisDiv.style.display = 'none';
+        linkDiv.style.display = 'none';
+    }
+}
+// 点击模态框外部关闭
+window.onclick = function(event) {
+    const modal = document.getElementById('trialModal');
+    if (event.target == modal) {
+        closeModal();
+    }
+}
+</script>
 </body>
 </html>
