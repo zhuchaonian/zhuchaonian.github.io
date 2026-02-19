@@ -1,12 +1,9 @@
-dy>
-</html>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>竹朝年 · 相由心生 | 手相 面相 婚姻 护身符</title>
-  <!-- 使用柔和的自然色调，符合玄学/传统风格，同时干净现代 -->
   <style>
     * {
       margin: 0;
@@ -16,7 +13,7 @@ dy>
     }
 
     body {
-      background: #faf7f2;  /*  parchment-like background */
+      background: #faf7f2;
       color: #2e2b27;
       line-height: 1.5;
     }
@@ -27,7 +24,6 @@ dy>
       padding: 2rem 1.5rem;
     }
 
-    /* 头部区域 */
     .header {
       text-align: center;
       margin-bottom: 3rem;
@@ -52,7 +48,6 @@ dy>
       font-style: italic;
     }
 
-    /* 标签栏/声明 */
     .disclaimer-badge {
       background: #f0e9e2;
       border-radius: 50px;
@@ -62,10 +57,8 @@ dy>
       font-size: 0.85rem;
       color: #5f534b;
       border: 1px solid #ddd2c8;
-      backdrop-filter: blur(2px);
     }
 
-    /* 卡片网格 */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -138,7 +131,6 @@ dy>
       border: 1px solid #e1d3c8;
     }
 
-    /* 付款区域 (二维码 + 流程) */
     .payment-section {
       background: #f3ede7;
       border-radius: 40px;
@@ -158,6 +150,7 @@ dy>
       align-items: center;
       justify-content: center;
       gap: 0.8rem;
+      flex-wrap: wrap;
     }
 
     .payment-title span {
@@ -175,31 +168,30 @@ dy>
       gap: 2rem;
       justify-content: center;
       align-items: center;
+      margin-bottom: 2rem;
     }
 
-   <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 20px 0;">
-  <div style="text-align: center; background: white; padding: 15px; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-    < img src="wechat.jpg" alt="微信收款码" width="140" style="border-radius: 12px; display: block;">
-    <p style="margin-top: 8px; font-weight: 500;">微信支付</p >
-  </div>
-  <div style="text-align: center; background: white; padding: 15px; border-radius: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.05);">
-   < img src="wechat.jpg" alt="微信收款码" ...> width="140" style="border-radius: 12px; display: block;">
-    <p style="margin-top: 8px; font-weight: 500;">支付宝</p >
-  </div>
-</div>
-<div style="text-align: center; margin-top: 10px; color: #6f5b4c; font-size:0.9rem;">
-  ⚠️ 扫任意码付款，备注服务名称（如“手相”）
-</div>
+    .qr-item {
+      text-align: center;
+      background: white;
+      padding: 15px;
+      border-radius: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
 
-    .qr-caption {
-      margin-top: 0.8rem;
+    .qr-item img {
+      width: 140px;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .qr-item p {
+      margin-top: 8px;
       font-weight: 500;
-      color: #6f523b;
     }
 
     .payment-steps {
-      flex: 1;
-      min-width: 240px;
+      margin-top: 2rem;
     }
 
     .step-item {
@@ -231,15 +223,7 @@ dy>
       color: #8b5a3c;
     }
 
-    .highlight {
-      background: #f7efe9;
-      border-left: 4px solid #b59783;
-      padding: 1.2rem 1.5rem;
-      border-radius: 18px;
-      margin: 2rem 0 1rem;
-    }
-
-    .contact-wechat {
+    .wechat-contact {
       background: white;
       border-radius: 60px;
       padding: 0.7rem 1.8rem;
@@ -248,31 +232,49 @@ dy>
       gap: 0.5rem;
       border: 1px solid #dacfc6;
       font-weight: 500;
-      margin-top: 0.5rem;
+      margin: 1rem 0;
     }
 
-    .footer-note {
-      margin-top: 3.5rem;
+    .privacy-note {
+      margin-top: 2rem;
+      font-size:0.85rem;
+      background: #e7dbd1;
+      padding: 0.6rem 1.2rem;
+      border-radius: 40px;
       text-align: center;
-      font-size: 0.85rem;
-      color: #8f7e72;
-      border-top: 1px solid #e1d6cd;
-      padding-top: 2rem;
+      color: #3c302a;
     }
 
-    .footer-note a {
-      color: #7d5f4b;
-      text-decoration: none;
-      border-bottom: 1px dotted #c2ab9b;
+    .highlight {
+      background: #f7efe9;
+      border-left: 4px solid #b59783;
+      padding: 1.2rem 1.5rem;
+      border-radius: 18px;
+      margin: 2rem 0 1rem;
     }
 
-    hr {
-      border: none;
-      border-top: 1px solid #e7ddd3;
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
       margin: 2rem 0;
     }
 
-    /* 护身符特别提示 */
+    .info-card {
+      max-width: 300px;
+    }
+
+    .info-card h4 {
+      font-weight:400;
+      color:#65493b;
+      margin-bottom:0.5rem;
+    }
+
+    .info-card p {
+      color:#705f54;
+    }
+
     .amulet-note {
       background: #f1e8df;
       border-radius: 40px;
@@ -282,10 +284,7 @@ dy>
       gap: 1.5rem;
       align-items: center;
       justify-content: space-around;
-    }
-
-    .amulet-note p {
-      max-width: 500px;
+      margin: 2rem 0;
     }
 
     .btn-subtle {
@@ -299,25 +298,32 @@ dy>
       box-shadow: 0 2px 6px rgba(0,0,0,0.02);
     }
 
-    /* 移动端优化 */
-    @media (max-width: 600px) {
-      .header h1 { font-size: 2rem; }
-      .services-grid { gap: 1.2rem; }
+    .footer-note {
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #8f7e72;
+      border-top: 1px solid #e1d6cd;
+      padding-top: 2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e7ddd3;
+      margin: 2rem 0;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- 头部 -->
     <div class="header">
       <h1>竹朝年 · 相念</h1>
       <div class="subhead">手相 · 脸相 · 婚姻契合 · 护身符</div>
       <div class="disclaimer-badge">📜 仅供娱乐与传统文化参考 · 生物数据匿名删除</div>
     </div>
 
-    <!-- 服务卡片 (AI辅助解读 + 实物) -->
+    <!-- 服务卡片 -->
     <div class="services-grid">
-      <!-- 手相卡片 -->
       <div class="service-card">
         <div class="card-icon">✋🏻</div>
         <h3>手相</h3>
@@ -325,7 +331,6 @@ dy>
         <div class="price-tag">¥19.9 <small>/次</small></div>
         <div class="badge">AI 辅助分析 · 人工解读</div>
       </div>
-      <!-- 脸相卡片 -->
       <div class="service-card">
         <div class="card-icon">👤</div>
         <h3>脸相</h3>
@@ -333,7 +338,6 @@ dy>
         <div class="price-tag">¥19.9 <small>/次</small></div>
         <div class="badge">AI 面相引擎 + 传统规则</div>
       </div>
-      <!-- 婚姻/情侣卡片 -->
       <div class="service-card">
         <div class="card-icon">💑</div>
         <h3>婚姻·合盘</h3>
@@ -341,7 +345,6 @@ dy>
         <div class="price-tag">¥29.9 <small>/对</small></div>
         <div class="badge">AI 配对算法 · 情感向报告</div>
       </div>
-      <!-- 护身符卡片 (实物) -->
       <div class="service-card">
         <div class="card-icon">🪬</div>
         <h3>护身符</h3>
@@ -351,63 +354,64 @@ dy>
       </div>
     </div>
 
-    <!-- 特别套餐说明 -->
-    <div class="highlight" style="text-align: center; background: #f4ece5;">
+    <!-- 套餐推荐 -->
+    <div class="highlight" style="text-align: center;">
       <p style="font-size: 1.3rem; margin-bottom: 0.3rem;">🎁 手+脸+婚姻 全套分析 · 仅需 39.9 元</p >
       <p style="color: #6b4f3c;">（三项联合解读，交叉印证更立体）</p >
     </div>
 
-    <!-- 付款 + 交付流程核心区域 (替代后端) -->
+    <!-- 付款区域 -->
     <div class="payment-section">
       <div class="payment-title">
         ⚡ 即刻委托 · 两步开启
         <span>人工+AI</span>
       </div>
-      
-      <div class="qr-row">
-        <!-- 微信收款二维码占位 (纯展示，需替换为实际二维码图片) -->
-        <div class="qr-code-placeholder">
-          <svg viewBox="0 0 100 100" width="140" height="140" style="background: white;">
-            <rect width="100" height="100" fill="#f5f0eb" rx="16" ry="16"></rect>
-            <rect x="18" y="18" width="64" height="64" fill="#d9c7b8" rx="8" ry="8"></rect>
-            <circle cx="34" cy="34" r="6" fill="#fff8f2"></circle>
-            <circle cx="66" cy="34" r="6" fill="#fff8f2"></circle>
-            <circle cx="34" cy="66" r="6" fill="#fff8f2"></circle>
-            <circle cx="66" cy="66" r="6" fill="#fff8f2"></circle>
-            <path d="M42 50 L58 50 M50 42 L50 58" stroke="#fff8f2" stroke-width="3"></path>
-            <text x="22" y="90" font-size="9" fill="#8b6f5a">微信支付</text>
-          </svg>
-          <div class="qr-caption">微信 / 支付宝 合码</div>
-          <p style="font-size:0.8rem; color:#8f7665;">扫一扫 · 备注【服务名称】</p >
-        </div>
 
-        <!-- 操作步骤 -->
-        <div class="payment-steps">
-          <div class="step-item">
-            <span class="step-number">1</span>
-            <div class="step-text"><strong>选择服务</strong> — 按上方价格扫码付款，<br>务必添加备注：手相/面相/合盘/护身符</div>
-          </div>
-          <div class="step-item">
-            <span class="step-number">2</span>
-            <div class="step-text"><strong>发送照片/需求</strong> — 付款后截图，<br>扫描下方微信二维码 或 搜索手机号 138****1122 添加</div>
-          </div>
-          <div class="step-item">
-            <span class="step-number">3</span>
-            <div class="step-text"><strong>等待报告/发货</strong> — 24小时内出解读（实物48h发货）<br>📷 照片仅用于分析，隔天删除</div>
-          </div>
-          <div style="margin-top: 1.2rem; background: white; border-radius: 60px; padding: 0.5rem 1.2rem; display: inline-block; border:1px solid #dac1b1;">
-            ⏎ 加微信: <strong>znian_ai</strong> (发送截图)
-          </div>
+      <!-- 两张收款码（请替换为你的实际图片） -->
+      <div class="qr-row">
+        <div class="qr-item">
+          < img src="wechat.jpg" alt="微信收款码">
+          <p>微信支付</p >
+        </div>
+        <div class="qr-item">
+          < img src="alipay.jpg" alt="支付宝收款码">
+          <p>支付宝</p >
+        </div>
+      </div>
+      <div style="text-align: center; margin: 0 0 1.5rem; color: #6f5b4c; font-size:0.9rem;">
+        ⚠️ 扫任意码付款，务必添加备注：服务名称（如“手相”）
+      </div>
+
+      <!-- 步骤 -->
+      <div class="payment-steps">
+        <div class="step-item">
+          <span class="step-number">1</span>
+          <div class="step-text"><strong>选择服务并付款</strong> — 按上方价格扫码，备注服务名称</div>
+        </div>
+        <div class="step-item">
+          <span class="step-number">2</span>
+          <div class="step-text"><strong>发送照片/需求</strong> — 付款后截图，加微信发送</div>
+        </div>
+        <div class="step-item">
+          <span class="step-number">3</span>
+          <div class="step-text"><strong>等待报告/发货</strong> — 24小时内出解读（实物48h发货）<br>📷 照片仅用于分析，隔天删除</div>
         </div>
       </div>
 
-      <!-- 隐私和删除承诺 -->
-      <div style="margin-top: 2rem; font-size:0.85rem; background: #e7dbd1; padding: 0.6rem 1.2rem; border-radius: 40px; text-align: center; color: #3c302a;">
+      <!-- 微信号 -->
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <div class="wechat-contact">
+          ⏎ 加微信: <strong>znian_ai</strong> (发送截图)
+        </div>
+      </div>
+
+      <!-- 隐私删除承诺 -->
+      <div class="privacy-note">
         🔒 所有上传照片 24-48h 内永久删除 · 不做训练 · 可要求立即销毁
       </div>
     </div>
 
-    <!-- 护身符特别说明 (实物) -->
+    <!-- 护身符特别说明 -->
     <div class="amulet-note">
       <div style="text-align: left;">
         <h4 style="font-size:1.4rem; font-weight:400; color:#4e3e33;">🪄 护身符 · 实物专线</h4>
@@ -419,24 +423,25 @@ dy>
       </div>
     </div>
 
-    <!-- 关于AI工具的说明，建立信任 -->
     <hr>
-    <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; margin: 2rem 0;">
-      <div style="max-width: 300px;">
-        <h4 style="font-weight:400; color:#65493b;">🔍 我们如何分析</h4>
-        <p style="color:#705f54;">采用AI大模型 + 传统相学知识库（如《麻衣神相》规则数字化）交叉验证。所有解读均有人工复核，避免机械感。</p >
+
+    <!-- 拍照小贴士 & 免责声明 (只保留一个) -->
+    <div class="info-grid">
+      <div class="info-card">
+        <h4>🔍 我们如何分析</h4>
+        <p>采用AI大模型 + 传统相学知识库（如《麻衣神相》规则数字化）交叉验证。所有解读均有人工复核，避免机械感。</p >
       </div>
-      <div style="max-width: 300px;">
-        <h4 style="font-weight:400; color:#65493b;">📸 拍照小贴士</h4>
-        <p style="color:#705f54;">手相：自然光下手掌平放，五指稍分；面相：素颜、正面、光线均匀。保证特征清晰即可。</p >
+      <div class="info-card">
+        <h4>📸 拍照小贴士</h4>
+        <p>手相：自然光下手掌平放，五指稍分；面相：素颜、正面、光线均匀。保证特征清晰即可。</p >
       </div>
-      <div style="max-width: 250px;">
-        <h4 style="font-weight:400; color:#65493b;">📋 免责声明</h4>
-        <p style="color:#705f54;">分析结果基于AI模型与文化符号，仅供娱乐与自我探索，不作医疗、财务或重大决策依据。</p >
+      <div class="info-card">
+        <h4>📋 免责声明</h4>
+        <p>分析结果基于AI模型与文化符号，仅供娱乐与自我探索，不作医疗、财务或重大决策依据。</p >
       </div>
     </div>
 
-    <!-- 页脚 包含github和备案说明 -->
+    <!-- 页脚 -->
     <div class="footer-note">
       <p>⛩️ 竹朝年 · 传统文化创新工作室 · 展示页</p >
       <p>托管于 GitHub Pages · 非商用内容交流 <br> 联系: zhuchaonian@protonmail.com · 微信号 znian_ai</p >
