@@ -70,7 +70,7 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
     </div>
 </div>
 
-<!-- 服务卡片 -->
+<!-- 服务卡片（所有链接已核对） -->
 <div class="services">
     <!-- 手相卡片 -->
     <div class="card">
@@ -99,13 +99,13 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
         <a href="https://tally.so/r/A7d68l" target="_blank" class="upload-btn">📤 上传双方照片</a >
     </div>
 
-    <!-- 护身符卡片 -->
+    <!-- 护身符卡片（注意链接是 GxzooL，两个o） -->
     <div class="card">
         <span style="font-size:40px;">🪬</span>
         <h3>护身符</h3>
         <p>手串·定制</p >
         <div class="price">¥58起</div>
-        <a href="https://tally.so/r/Gxzo0L" target="_blank" class="upload-btn">📤 咨询选购</a >
+        <a href="https://tally.so/r/GxzooL" target="_blank" class="upload-btn">📤 咨询选购</a >
     </div>
 </div>
 
@@ -132,7 +132,6 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
 </div>
 
 <script>
-// 分析文本数组
 const handAnalyses = [
     "生命线深长，体质较好；智慧线略微下垂，富有想象力。",
     "手掌厚实，财运不错；事业线清晰，工作上会有突破。",
@@ -145,18 +144,13 @@ const faceAnalyses = [
 ];
 
 function showRandomAnalysis(type) {
-    const analysisDiv = document.getElementById(type + 'Analysis');
-    const hintDiv = document.getElementById(type + 'Hint');
-    const analyses = type === 'hand' ? handAnalyses : faceAnalyses;
-    analysisDiv.innerHTML = analyses[Math.floor(Math.random() * analyses.length)];
-    analysisDiv.style.display = 'block';
-    hintDiv.style.display = 'block';
+    document.getElementById(type+'Analysis').innerHTML = (type==='hand'?handAnalyses:faceAnalyses)[Math.floor(Math.random()*3)];
+    document.getElementById(type+'Analysis').style.display = 'block';
+    document.getElementById(type+'Hint').style.display = 'block';
 }
-
 function openModal() {
     document.getElementById('trialModal').style.display = 'block';
-    const active = document.getElementById('tabHand').classList.contains('active') ? 'hand' : 'face';
-    showRandomAnalysis(active);
+    showRandomAnalysis(document.getElementById('tabHand').classList.contains('active')?'hand':'face');
 }
 function closeModal() {
     document.getElementById('trialModal').style.display = 'none';
@@ -172,39 +166,39 @@ function closeModal() {
     document.getElementById('tabFace').classList.remove('active');
 }
 function switchTab(tab) {
-    if (tab === 'hand') {
-        document.getElementById('handTab').style.display = 'block';
-        document.getElementById('faceTab').style.display = 'none';
+    if(tab==='hand'){
+        document.getElementById('handTab').style.display='block';
+        document.getElementById('faceTab').style.display='none';
         document.getElementById('tabHand').classList.add('active');
         document.getElementById('tabFace').classList.remove('active');
-        document.getElementById('facePreview').style.display = 'none';
-        document.getElementById('faceAnalysis').style.display = 'none';
-        document.getElementById('faceHint').style.display = 'none';
+        document.getElementById('facePreview').style.display='none';
+        document.getElementById('faceAnalysis').style.display='none';
+        document.getElementById('faceHint').style.display='none';
         showRandomAnalysis('hand');
-    } else {
-        document.getElementById('handTab').style.display = 'none';
-        document.getElementById('faceTab').style.display = 'block';
+    }else{
+        document.getElementById('handTab').style.display='none';
+        document.getElementById('faceTab').style.display='block';
         document.getElementById('tabHand').classList.remove('active');
         document.getElementById('tabFace').classList.add('active');
-        document.getElementById('handPreview').style.display = 'none';
-        document.getElementById('handAnalysis').style.display = 'none';
-        document.getElementById('handHint').style.display = 'none';
+        document.getElementById('handPreview').style.display='none';
+        document.getElementById('handAnalysis').style.display='none';
+        document.getElementById('handHint').style.display='none';
         showRandomAnalysis('face');
     }
 }
 function previewAndAnalyze(type) {
-    const file = document.getElementById(type + 'File').files[0];
-    if (file) {
+    const file = document.getElementById(type+'File').files[0];
+    if(file){
         const reader = new FileReader();
         reader.onload = e => {
-            document.getElementById(type + 'Preview').src = e.target.result;
-            document.getElementById(type + 'Preview').style.display = 'block';
+            document.getElementById(type+'Preview').src = e.target.result;
+            document.getElementById(type+'Preview').style.display = 'block';
         };
         reader.readAsDataURL(file);
         showRandomAnalysis(type);
     }
 }
-window.onclick = e => { if (e.target.classList.contains('modal')) closeModal(); };
+window.onclick = e => { if(e.target.classList.contains('modal')) closeModal(); };
 </script>
 </body>
 </html>
