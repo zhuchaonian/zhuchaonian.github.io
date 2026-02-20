@@ -1,6 +1,10 @@
+
+```html
 <!DOCTYPE html>
 <html>
-<head><meta charset="UTF-8"><title>竹朝年·手相面相婚姻护身符</title>
+<head>
+<meta charset="UTF-8">
+<title>竹朝年·手相面相婚姻护身符</title>
 <style>
 body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:auto;padding:20px;}
 .header{text-align:center;margin-bottom:30px;}
@@ -20,134 +24,6 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
 .amulet{background:#e2d4c8;border-radius:30px;padding:20px;display:flex;flex-wrap:wrap;gap:20px;margin:40px 0;}
 .info{display:flex;flex-wrap:wrap;gap:20px;margin:30px 0;}
 .footer{text-align:center;margin-top:40px;color:#7a6a5c;border-top:1px solid #ccc;padding-top:20px;}
-.upload-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #b5967a;
-    color: white;
-    text-decoration: none;
-    border-radius: 40px;
-    font-size: 16px;
-    transition: 0.2s;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    box-sizing: border-box;
-}
-.upload-btn:hover {
-    background-color: #9e7f64;
-}
-/* 免费试测模态框样式 */
-.trial-banner {
-    background: #e2c9b0;
-    border-radius: 40px;
-    padding: 15px 25px;
-    margin: 20px 0;
-    text-align: center;
-    cursor: pointer;
-    transition: 0.2s;
-    border: 2px solid #b5967a;
-}
-.trial-banner:hover {
-    background: #d6b99b;
-}
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-}
-.modal-content {
-    background: white;
-    margin: 10% auto;
-    padding: 30px;
-    border-radius: 30px;
-    width: 90%;
-    max-width: 500px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    position: relative;
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-}
-.close:hover {
-    color: black;
-}
-.tab {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-.tab button {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    background: #f0e4d8;
-    border-radius: 40px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-}
-.tab button.active {
-    background: #b5967a;
-    color: white;
-}
-.upload-area {
-    border: 2px dashed #b5967a;
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-    margin: 20px 0;
-}
-.upload-area input {
-    display: none;
-}
-.upload-area label {
-    background: #b5967a;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 40px;
-    cursor: pointer;
-    display: inline-block;
-}
-.preview {
-    max-width: 100%;
-    max-height: 200px;
-    margin-top: 15px;
-    border-radius: 10px;
-}
-.analysis-result {
-    background: #f9f3ed;
-    border-radius: 20px;
-    padding: 15px;
-    margin: 15px 0;
-    font-style: italic;
-}
-.full-report-btn {
-    background: #b45f2a;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 40px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-</style>
-</head>
-<body>
-<div class="header"><h1>竹朝年 · 相念</h1><p>手相 · 脸相 · 婚姻契合 · 护身符</p ><div style="background:#ddd2c8;border-radius:30px;padding:5px 15px;display:inline-block;">📜仅供娱乐·数据匿名删除</div></div>
 
 <!-- 免费试测横幅 -->
 <div class="trial-banner" onclick="openModal()">
@@ -171,9 +47,10 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
                 < img id="handPreview" class="preview" style="display:none;">
             </div>
             <div id="handAnalysis" class="analysis-result" style="display:none;"></div>
-            <div id="handFullLink" style="display:none; text-align:center;">
-                <a href=" " target="_blank" class="full-report-btn">获取完整手相报告 ¥19.9</a >
-            </div>
+            <!-- 提示区域 -->
+            <div id="handHint" class="payment-hint" style="display:none;">想要深入了解，请扫码付款截图后才可详细了解</div>
+            <!-- 原付费链接隐藏 -->
+            <div id="handFullLink" style="display:none;"></div>
         </div>
         <div id="faceTab" style="display:none;">
             <p>请上传一张自然光下的面部照片，我们将为您提供初步分析。</p >
@@ -183,9 +60,10 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
                 < img id="facePreview" class="preview" style="display:none;">
             </div>
             <div id="faceAnalysis" class="analysis-result" style="display:none;"></div>
-            <div id="faceFullLink" style="display:none; text-align:center;">
-                <a href="https://tally.so/r/gD0Q5M" target="_blank" class="full-report-btn">获取完整面相报告 ¥19.9</a >
-            </div>
+            <!-- 提示区域 -->
+            <div id="faceHint" class="payment-hint" style="display:none;">想要深入了解，请扫码付款截图后才可详细了解</div>
+            <!-- 原付费链接隐藏 -->
+            <div id="faceFullLink" style="display:none;"></div>
         </div>
     </div>
 </div>
@@ -198,7 +76,7 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
         <p>感情线·智慧线·生命线·事业财运<br>📸上传清晰手掌照片</p >
         <div class="price">¥19.9<small>/次</small></div>
         <span class="badge">AI辅助·人工解读</span>
-        <a href="https://tally.so/r/81KJpz" target="_blank" class="upload-btn">📤 上传手相照片</a >
+        <a href=" " target="_blank" class="upload-btn">📤 上传手相照片</a >
     </div>
     <!-- 脸相卡片 -->
     <div class="card">
@@ -254,9 +132,47 @@ body{background:#f5f0eb;font-family:Arial,sans-serif;max-width:1000px;margin:aut
 <div class="footer"><p>⛩️竹朝年·传统文化创新工作室·展示页</p ><p>托管于 GitHub Pages · 非商用交流 <br> 联系: zhuchaonian@protonmail.com · 微信号 zcn13973437009</p ><p>©2026 实际交易通过微信/支付宝完成</p ></div>
 
 <script>
+// 定义分析文本数组（全局）
+const handAnalyses = [
+    "生命线深长，体质较好；智慧线略微下垂，富有想象力。感情线清晰，情感丰富。",
+    "手掌厚实，财运不错；事业线清晰，工作上会有突破。感情线上有岛纹，需注意沟通。",
+    "生命线起点高，活力充沛；智慧线分叉，多才多艺。感情线末端下垂，为他人着想。",
+    "智慧线平直，思维理性；感情线较长，重视家庭。生命线有分支，精力旺盛。",
+    "感情线末端向上，积极乐观；智慧线稍短，直觉敏锐。生命线环绕拇指，生命力强。",
+    "手相显示您近期有贵人运；感情线深长，中年后婚姻稳定。生命线清晰，健康无忧。"
+];
+const faceAnalyses = [
+    "额头饱满，智慧早开；眉形清秀，人际关系佳。鼻梁挺直，中年运势不错。",
+    "下巴圆润，晚年安稳；颧骨有肉，权力欲望不强但人缘好。眼神清澈，心地善良。",
+    "三停均衡，一生顺遂；气色红润，近期运势上扬。建议把握机会。",
+    "耳朵贴脑，早年得宠；眉眼间距宽，心胸开阔。法令纹深，威望渐显。",
+    "印堂光亮，近期有喜事；山根高挺，中年财运亨通。嘴角上扬，人缘极佳。"
+];
+
+// 显示随机分析（无需上传）
+function showRandomAnalysis(type) {
+    const analysisDiv = document.getElementById(type + 'Analysis');
+    const hintDiv = document.getElementById(type + 'Hint');
+    const preview = document.getElementById(type + 'Preview');
+    const linkDiv = document.getElementById(type + 'FullLink');
+    // 隐藏预览图片
+    if (preview) preview.style.display = 'none';
+    // 随机选择分析文本
+    const analyses = type === 'hand' ? handAnalyses : faceAnalyses;
+    const randomIndex = Math.floor(Math.random() * analyses.length);
+    analysisDiv.innerHTML = analyses[randomIndex];
+    analysisDiv.style.display = 'block';
+    // 显示提示，隐藏付费链接
+    hintDiv.style.display = 'block';
+    linkDiv.style.display = 'none';
+}
+
 // 模态框控制
 function openModal() {
     document.getElementById('trialModal').style.display = 'block';
+    // 根据当前激活的选项卡显示随机分析
+    const activeTab = document.getElementById('tabHand').classList.contains('active') ? 'hand' : 'face';
+    showRandomAnalysis(activeTab);
 }
 function closeModal() {
     document.getElementById('trialModal').style.display = 'none';
@@ -272,10 +188,12 @@ function resetTab(tab) {
     let preview = document.getElementById(tab + 'Preview');
     let analysis = document.getElementById(tab + 'Analysis');
     let linkDiv = document.getElementById(tab + 'FullLink');
+    let hintDiv = document.getElementById(tab + 'Hint');
     let fileInput = document.getElementById(tab + 'File');
     if (preview) { preview.style.display = 'none'; preview.src = ''; }
     if (analysis) { analysis.style.display = 'none'; analysis.innerHTML = ''; }
     if (linkDiv) { linkDiv.style.display = 'none'; }
+    if (hintDiv) { hintDiv.style.display = 'none'; }
     if (fileInput) { fileInput.value = ''; }
 }
 // 切换标签
@@ -286,19 +204,22 @@ function switchTab(tab) {
         document.getElementById('tabHand').classList.add('active');
         document.getElementById('tabFace').classList.remove('active');
         resetTab('face');
+        showRandomAnalysis('hand');
     } else {
         document.getElementById('handTab').style.display = 'none';
         document.getElementById('faceTab').style.display = 'block';
         document.getElementById('tabHand').classList.remove('active');
         document.getElementById('tabFace').classList.add('active');
         resetTab('hand');
+        showRandomAnalysis('face');
     }
 }
-// 预览并显示模拟分析
+// 预览并显示模拟分析（上传照片后调用）
 function previewAndAnalyze(type) {
     const fileInput = document.getElementById(type + 'File');
     const preview = document.getElementById(type + 'Preview');
     const analysisDiv = document.getElementById(type + 'Analysis');
+    const hintDiv = document.getElementById(type + 'Hint');
     const linkDiv = document.getElementById(type + 'FullLink');
 
     if (fileInput.files && fileInput.files[0]) {
@@ -309,30 +230,18 @@ function previewAndAnalyze(type) {
         }
         reader.readAsDataURL(fileInput.files[0]);
 
-        // 模拟分析文本（可随时丰富）
-        const handAnalyses = [
-            "生命线深长，体质较好；智慧线略微下垂，富有想象力。感情线清晰，情感丰富。",
-            "手掌厚实，财运不错；事业线清晰，工作上会有突破。感情线上有岛纹，需注意沟通。",
-            "生命线起点高，活力充沛；智慧线分叉，多才多艺。感情线末端下垂，为他人着想。",
-            "智慧线平直，思维理性；感情线较长，重视家庭。生命线有分支，精力旺盛。",
-            "感情线末端向上，积极乐观；智慧线稍短，直觉敏锐。生命线环绕拇指，生命力强。",
-            "手相显示您近期有贵人运；感情线深长，中年后婚姻稳定。生命线清晰，健康无忧。"
-        ];
-        const faceAnalyses = [
-            "额头饱满，智慧早开；眉形清秀，人际关系佳。鼻梁挺直，中年运势不错。",
-            "下巴圆润，晚年安稳；颧骨有肉，权力欲望不强但人缘好。眼神清澈，心地善良。",
-            "三停均衡，一生顺遂；气色红润，近期运势上扬。建议把握机会。",
-            "耳朵贴脑，早年得宠；眉眼间距宽，心胸开阔。法令纹深，威望渐显。",
-            "印堂光亮，近期有喜事；山根高挺，中年财运亨通。嘴角上扬，人缘极佳。"
-        ];
+        // 从全局数组中随机选取分析文本
         const analyses = type === 'hand' ? handAnalyses : faceAnalyses;
         const randomIndex = Math.floor(Math.random() * analyses.length);
         analysisDiv.innerHTML = analyses[randomIndex];
         analysisDiv.style.display = 'block';
-        linkDiv.style.display = 'block';
+        // 显示提示，隐藏付费链接
+        hintDiv.style.display = 'block';
+        linkDiv.style.display = 'none';
     } else {
         preview.style.display = 'none';
         analysisDiv.style.display = 'none';
+        hintDiv.style.display = 'none';
         linkDiv.style.display = 'none';
     }
 }
@@ -346,3 +255,4 @@ window.onclick = function(event) {
 </script>
 </body>
 </html>
+```
