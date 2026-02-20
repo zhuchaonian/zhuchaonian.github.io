@@ -35,7 +35,10 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
 <body>
 <div class="header"><h1>竹朝年·相念</h1><p>手相 · 面相 · 婚姻 · 护身符</p ></div>
 
-<!-- 免费试测模态框 -->
+<!-- 免费试测横幅 -->
+<div class="trial-banner" onclick="openModal()">✨ 点击免费试测手相/面相（初步分析） ✨</div>
+
+<!-- 模态框 -->
 <div id="trialModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -97,9 +100,7 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
 <!-- 付款流程 -->
 <div class="payment-box">
     <h2>⚡即刻委托·人工+AI</h2>
-    <div style="background:white; border-radius:20px; padding:15px;">
-    <p style="font-size:18px;">👉 请加微信 <strong>zcn13973437009</strong> 获取收款码</p >
-</div>
+    <div class="qr">< img src="wechat.jpg" alt="微信收款码"><p>微信支付</p ></div>
     <p style="color:red;">扫码付款备注服务名称</p >
     <div class="step"><span class="step-num">1</span>选择服务并付款</div>
     <div class="step"><span class="step-num">2</span>付款截图加微信发送</div>
