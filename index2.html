@@ -35,10 +35,7 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
 <body>
 <div class="header"><h1>竹朝年·相念</h1><p>手相 · 面相 · 婚姻 · 护身符</p ></div>
 
-<!-- 免费试测横幅 -->
-<div class="trial-banner" onclick="openModal()">✨ 点击免费试测手相/面相（初步分析） ✨</div>
-
-<!-- 模态框 -->
+<!-- 免费试测模态框 -->
 <div id="trialModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -54,7 +51,7 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
                 <label for="handFile">选择照片</label>
                 < img id="handPreview" class="preview">
             </div>
-            <div id="handAnalysis" class="analysis-result" style="display:none;"></div>
+            <div id="handAnalysis" class="analysis-result"></div>
             <div id="handHint" class="payment-hint">想要深入了解，请扫码付款截图后才可详细了解</div>
         </div>
         <div id="faceTab" style="display:none;">
@@ -64,7 +61,7 @@ body{background:#f5f0eb;font-family:sans-serif;max-width:1000px;margin:auto;padd
                 <label for="faceFile">选择照片</label>
                 < img id="facePreview" class="preview">
             </div>
-            <div id="faceAnalysis" class="analysis-result" style="display:none;"></div>
+            <div id="faceAnalysis" class="analysis-result"></div>
             <div id="faceHint" class="payment-hint">想要深入了解，请扫码付款截图后才可详细了解</div>
         </div>
     </div>
